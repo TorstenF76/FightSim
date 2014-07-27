@@ -1,0 +1,47 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>KampfSim::Scrumboard</title>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<style>
+	body {
+		font-family: sans-serif;
+	}
+	dt {
+		font-weight: bold;
+	}
+	</style>
+	<script>
+function print(h1, list) {
+	document.writeln("<h1>" + h1 + "</h1>");
+	document.writeln("<dl>");
+	$.each(list, function(i, e) {
+		document.writeln("<dt>" + e.header + "</dt>");
+		document.writeln("<dd>" + e.body + "</dd>");
+	});
+	document.writeln("</dl>");
+}
+function item(header, body) {
+	this.header = header;
+	this.body = body;
+}
+</script>
+</head>
+<body>
+	<script>
+	
+var done = [
+];
+var sprint = [
+	new item('Backlog', 'Diese Seite erstellen')
+];
+var backlog = [
+	new item('Basis-Einheiten', 'Einheiten der eigenen Insel')
+];
+
+print("Sprint", sprint);
+print("Backlog", backlog);
+print("Done", done);
+</script>
+</body>
+</html>
