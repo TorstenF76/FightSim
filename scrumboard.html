@@ -2,7 +2,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>KampfSim::Scrumboard</title>
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="jquery-1.11.1.min.js"></script>
 	<style>
 	body {
 		font-family: sans-serif;
@@ -36,7 +36,10 @@ var sprint = [
 	new item('Backlog', 'Diese Seite erstellen')
 ];
 var backlog = [
-	new item('Basis-Einheiten', 'Einheiten der eigenen Insel')
+	new item('Basis-Einheiten', 'Eigene Einheiten definieren (Generäle nicht vergessen)'),
+	new item('Basis-Kampf', 'Eigene Einheiten gegeneinander kämpfen lassen'),
+	new item('Visualisierung', 'Ergebnisse der Kämpfe visualisieren'),
+	new item('Einheiten in UI konfigurieren', "Einheiten in der UI definieren die gegeneinander kämpfen sollen. Anzahl, Gegner")
 ];
 
 print("Sprint", sprint);
