@@ -7,8 +7,23 @@
 	body {
 		font-family: sans-serif;
 	}
+	h1 {
+		background-color: #0D3349;
+		color: #8699A4;
+		padding: 0.5em 0 0.5em 1em;
+	}
 	dt {
+		background-color: #2B81AF;
+		color: #FFFFFF;
 		font-weight: bold;
+		margin-left: 0em;
+		padding: 0.5em 0 0.5em 1em;
+	}
+	dd {
+		background-color: #D2E0E6;
+		color: #528CE0;
+		margin-left: 0em;
+		padding: 0.5em 0 0.5em 1em;
 	}
 	</style>
 	<script>
@@ -31,12 +46,12 @@ function item(header, body) {
 	<script>
 	
 var done = [
-];
-var sprint = [
 	new item('Backlog', 'Diese Seite erstellen')
 ];
-var backlog = [
+var sprint = [
 	new item('Basis-Einheiten', 'Eigene Einheiten definieren (Generäle nicht vergessen)'),
+];
+var backlog = [
 	new item('Basis-Kampf', 'Eigene Einheiten gegeneinander kämpfen lassen'),
 	new item('Visualisierung', 'Ergebnisse der Kämpfe visualisieren'),
 	new item('Einheiten in UI konfigurieren', "Einheiten in der UI definieren die gegeneinander kämpfen sollen. Anzahl, Gegner")
