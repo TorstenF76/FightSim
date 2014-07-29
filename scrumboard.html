@@ -6,11 +6,17 @@
 	<style>
 	body {
 		font-family: sans-serif;
+		padding: 0em;
+		margin: 0em;
 	}
 	h1 {
 		background-color: #0D3349;
 		color: #8699A4;
 		padding: 0.5em 0 0.5em 1em;
+		margin: 0em;
+	}
+	dl {
+		margin: 0em;
 	}
 	dt {
 		background-color: #2B81AF;
@@ -25,9 +31,19 @@
 		margin-left: 0em;
 		padding: 0.5em 0 0.5em 1em;
 	}
+	.done {
+		border-left: solid 1em green;
+	}
+	.backlog {
+		border-left: solid 1em red;
+	}
+	.sprint {
+		border-left: solid 1em yellow;
+	}
 	</style>
 	<script>
 function print(h1, list) {
+	document.writeln("<div class='"+h1+"'>");
 	document.writeln("<h1>" + h1 + "</h1>");
 	document.writeln("<dl>");
 	$.each(list, function(i, e) {
@@ -35,6 +51,7 @@ function print(h1, list) {
 		document.writeln("<dd>" + e.body + "</dd>");
 	});
 	document.writeln("</dl>");
+	document.writeln("</div>");
 }
 function item(header, body) {
 	this.header = header;
@@ -46,13 +63,16 @@ function item(header, body) {
 	<script>
 	
 var done = [
-	new item('Backlog', 'Diese Seite erstellen')
+	new item('Backlog', 'Diese Seite erstellen'),
+	new item('Objektmodell Basis-Einheiten', 'Objektmodell für Basis-Einheiten erarbeiten'),
 ];
 var sprint = [
 	new item('Basis-Einheiten', 'Eigene Einheiten definieren (Generäle nicht vergessen)'),
 ];
 var backlog = [
+	new item('Objektmodell Kampf', 'Objektmodell für Kampfsystem erarbeiten'),
 	new item('Basis-Kampf', 'Eigene Einheiten gegeneinander kämpfen lassen'),
+	new item('Einheiten Selektor', 'Wählt aus zwei Armeen diejenigen Einheiten aus, die als nächstes gegeneinander kämpfen'),
 	new item('Visualisierung', 'Ergebnisse der Kämpfe visualisieren'),
 	new item('Einheiten in UI konfigurieren', "Einheiten in der UI definieren die gegeneinander kämpfen sollen. Anzahl, Gegner")
 ];

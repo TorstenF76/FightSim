@@ -1,30 +1,58 @@
 // http://thesettlersonline.wikia.com/wiki/Troops
 
+
+var Initiative = {
+	First: "first",
+	Normal: "normal",
+	Last: "last"
+}
+
+var UnitFactory = {
+	
+	unit: function(conf) {
+	
+		// defaults:
+		if (!conf.ini) conf.ini = Initiative.Normal;
+		
+		return {
+			hitPoints: conf.hp,	// Lebenspunkte
+			hitPointsAfterFight: {
+				min: conf.hp, 
+				avg: conf.hp, 
+				max: conf.hp
+			},
+			damageMax: conf.max,	// Schaden max
+			damageMin: conf.min,	// Schaden min
+			accuracy: conf.acc, 	// Treffsicherheit
+			initiative: conf.ini
+		};
+	},
+
+	recruit: function() {
+		return this.unit({ hp: 40, max: 30, min: 15, acc: 80 });
+	},
+
+	militia: function() {
+		return this.unit({ hp: 60, max: 40, min: 20, acc: 80});
+	},
+	
+	soldier: function() {
+		return this.unit({ hp: 90, max: 40, min: 20, acc: 85});
+	},
+
+	eliteSoldier: function() {
+		return this.unit({ hp: 120, max: 40, min: 20, acc: 90});
+	},
+
+	cavalry: function() {
+		return this.unit({ hp: 5, max: 10, min: 5, acc: 80, ini: Initiative.First });
+	},
+}
+
 // plural
 function units(count, unit) {
 	this.count = count;
 	this.unit = unit;
-}
-
-function unit(hitPoints, damageMin, damageMax, accuracy) {
-	this.hitPoints = hitPoints;	// Lebenspunkte
-	this.hitPointsAfterFight = {
-		min: hitPoints, avg: hitPoints, max: hitPoints
-	}
-	this.damageMin = damageMin;	// Schaden min
-	this.damageMax = damageMax;	// Schaden max
-	this.accuracy = accuracy; 	// Treffsicherheit
-	this.initiative = "normal";
-}
-
-function recruit() {
-	var r = new unit(40, 15, 30, 80);
-	return r;
-}
-
-function militia() {
-	var m = new unit(60, 20, 40, 80);
-	return m;
 }
 
 function garrison(unitsArray) {
