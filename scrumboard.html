@@ -18,17 +18,25 @@
 	dl {
 		margin: 0em;
 	}
+	dl.float dt {
+		width: 20em;
+		clear: left;
+		float: left;
+	}
+	dl.float dd {
+		clear: right;
+	}
 	dt {
 		background-color: #2B81AF;
 		color: #FFFFFF;
 		font-weight: bold;
-		margin-left: 0em;
+		margin-left: 1em;
 		padding: 0.5em 0 0.5em 1em;
 	}
 	dd {
 		background-color: #D2E0E6;
 		color: #528CE0;
-		margin-left: 0em;
+		margin-left: 1em;
 		padding: 0.5em 0 0.5em 1em;
 	}
 	.done {
@@ -45,7 +53,7 @@
 function print(h1, list) {
 	document.writeln("<div class='"+h1+"'>");
 	document.writeln("<h1>" + h1 + "</h1>");
-	document.writeln("<dl>");
+	document.writeln("<dl class='float'>");
 	$.each(list, function(i, e) {
 		document.writeln("<dt>" + e.header + "</dt>");
 		document.writeln("<dd>" + e.body + "</dd>");
