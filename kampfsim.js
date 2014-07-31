@@ -9,12 +9,13 @@ var Initiative = {
 
 var UnitFactory = {
 	
-	unit: function(conf) {
+	unit: function(shortcut, conf) {
 	
 		// defaults:
 		if (!conf.ini) conf.ini = Initiative.Normal;
 		
 		return {
+			letter: shortcut,	// Buchstabe
 			hitPoints: conf.hp,	// Lebenspunkte
 			hitPointsAfterFight: {
 				min: conf.hp, 
@@ -29,23 +30,23 @@ var UnitFactory = {
 	},
 
 	recruit: function() {
-		return this.unit({ hp: 40, max: 30, min: 15, acc: 80 });
+		return this.unit("R", { hp: 40, max: 30, min: 15, acc: 80 });
 	},
 
 	militia: function() {
-		return this.unit({ hp: 60, max: 40, min: 20, acc: 80});
+		return this.unit("M", { hp: 60, max: 40, min: 20, acc: 80});
 	},
 	
 	soldier: function() {
-		return this.unit({ hp: 90, max: 40, min: 20, acc: 85});
+		return this.unit("S", { hp: 90, max: 40, min: 20, acc: 85});
 	},
 
 	eliteSoldier: function() {
-		return this.unit({ hp: 120, max: 40, min: 20, acc: 90});
+		return this.unit("ES", { hp: 120, max: 40, min: 20, acc: 90});
 	},
 
 	cavalry: function() {
-		return this.unit({ hp: 5, max: 10, min: 5, acc: 80, ini: Initiative.First });
+		return this.unit("C", { hp: 5, max: 10, min: 5, acc: 80, ini: Initiative.First });
 	},
 }
 

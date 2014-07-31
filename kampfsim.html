@@ -1,0 +1,13 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>KampfSimulator</title>
+	<script src="kampfsim.js"></script>
+	<script src="kampfsim-ui.js"></script>
+	<script>var ui = KampfsimUi; var u = UnitFactory;</script>
+</head>
+<body>
+	<h2>Eigene Einheiten</h2>
+	<script>document.writeln(ui.render(u.recruit()))</script>
+</body>
+</html>
