@@ -12,8 +12,13 @@ var KampfsimUi = {
 		K: "http://www.siedlertools.de/w/images/4/49/Icon_cannonier.png"
 	},
 	
+	labels: {
+		R: "Rekrut"
+	},
+	
 	render: function(unit) {
 		var icon = this.icons[unit.letter];
-		return "<img src='" + icon + "' alt='" + unit.letter + "'/>";
+		var text = this.labels[unit.letter];
+		return "<img src='" + icon + "' alt='" + unit.letter + "'/>&nbsp;" + text;
 	}
 }
