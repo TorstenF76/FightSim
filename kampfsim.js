@@ -7,8 +7,9 @@ var Initiative = {
 	Last: "last"
 }
 
-var UnitFactory = {
+var HomeIsland = {
 	allUnits: function() {
+		var u = UnitFactory;
 		return [
 			u.recruit(), 
 			u.militia(), 
@@ -16,8 +17,10 @@ var UnitFactory = {
 			u.eliteSoldier(), 
 			u.cavalry()
 		];
-	},
-	
+	}
+}
+
+var UnitFactory = {
 	unit: function(shortcut, conf) {
 	
 		// defaults:

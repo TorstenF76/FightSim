@@ -4,16 +4,15 @@
 	<title>KampfSimulator</title>
 	<script src="kampfsim.js"></script>
 	<script src="kampfsim-ui.js"></script>
-	<script>var ui = KampfsimUi; var u = UnitFactory;</script>
 </head>
 <body>
 	<h2>Eigene Einheiten</h2>
 	<script>
 	// todo: u.getUnits()
-	var units = u.allUnits();
+	var units = HomeIsland.allUnits();
 	var t = "";
 	for(var i in units) {
-		t += ui.render(units[i]) + "<br/>";
+		t += KampfsimUi.render(units[i]) + "<br/>";
 	}
 	document.writeln(t);
 	</script>
