@@ -13,7 +13,15 @@ var KampfsimUi = {
 	},
 	
 	labels: {
-		R: "Rekrut"
+		R: "Rekrut",
+		M: "Miliz", 
+		S: "Soldat", 
+		E: "Elitesoldat", 
+		C: "Reiter", 
+		B: "Bogenschütze", 
+		LB: "Langbogenschütze", 
+		A: "Armbrustschütze", 
+		K: "Kanonier"
 	},
 	
 	render: function(unit) {

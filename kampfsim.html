@@ -8,6 +8,14 @@
 </head>
 <body>
 	<h2>Eigene Einheiten</h2>
-	<script>document.writeln(ui.render(u.recruit()))</script>
+	<script>
+	// todo: u.getUnits()
+	var units = u.allUnits();
+	var t = "";
+	for(var i in units) {
+		t += ui.render(units[i]) + "<br/>";
+	}
+	document.writeln(t);
+	</script>
 </body>
 </html>

@@ -8,6 +8,15 @@ var Initiative = {
 }
 
 var UnitFactory = {
+	allUnits: function() {
+		return [
+			u.recruit(), 
+			u.militia(), 
+			u.soldier(), 
+			u.eliteSoldier(), 
+			u.cavalry()
+		];
+	},
 	
 	unit: function(shortcut, conf) {
 	
@@ -42,7 +51,7 @@ var UnitFactory = {
 	},
 
 	eliteSoldier: function() {
-		return this.unit("ES", { hp: 120, max: 40, min: 20, acc: 90});
+		return this.unit("E", { hp: 120, max: 40, min: 20, acc: 90});
 	},
 
 	cavalry: function() {
