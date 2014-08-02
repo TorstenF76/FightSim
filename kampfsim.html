@@ -2,19 +2,20 @@
 <head>
 	<meta charset="utf-8">
 	<title>KampfSimulator</title>
+	<script src="lib/jquery-1.11.1.min.js"></script>
+	<script src="lib/jquery-ui-1.11.0/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="lib/jquery-ui-1.11.0/jquery-ui.min.css">
 	<script src="kampfsim.js"></script>
 	<script src="kampfsim-ui.js"></script>
 </head>
 <body>
 	<h2>Eigene Einheiten</h2>
 	<script>
-	// todo: u.getUnits()
-	var units = HomeIsland.allUnits();
-	var t = "";
-	for(var i in units) {
-		t += KampfsimUi.render(units[i]) + "<br/>";
-	}
-	document.writeln(t);
+	$.each(HomeIsland.allUnits(), function(key, value) {
+		KampfsimUi.printUnit(value);
+		document.writeln("<br/>");
+	});
+	KampfsimUi.init();
 	</script>
 </body>
 </html>

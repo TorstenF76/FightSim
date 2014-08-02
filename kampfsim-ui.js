@@ -24,9 +24,17 @@ var KampfsimUi = {
 		K: "Kanonier"
 	},
 	
-	render: function(unit) {
+	printUnit: function(unit) {
 		var icon = this.icons[unit.letter];
 		var text = this.labels[unit.letter];
-		return "<img src='" + icon + "' alt='" + unit.letter + "'/>&nbsp;" + text;
+		var html = "<span class='unit'>";
+		html += "<input class='spinner' name='"+unit.letter+"' size='3' value='0'>";
+		html += "<img src='" + icon + "' alt='" + unit.letter + "'/>&nbsp;" + text;
+		html += "</span>";
+		document.writeln(html);
+	},
+	
+	init: function() {
+		$( ".unit .spinner" ).spinner({min: 0, max: 250});
 	}
 }
