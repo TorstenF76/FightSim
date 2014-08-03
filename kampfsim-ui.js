@@ -30,8 +30,9 @@ var KampfsimUi = {
 		var icon = this.icons[unit.letter];
 		var text = this.labels[unit.letter];
 		var html = "<span class='unit'>";
-		html += "<input class='spinner' name='" + unit.letter + "' size='3' value='0'>";
-		html += "<img src='" + icon + "' alt='" + unit.letter + "'/>&nbsp;" + text;
+		html += Html.tag("input", { class: "spinner", name: unit.letter, size: 3, value: 0 } );
+		html += Html.tag("img", { src: icon, alt: unit.letter });
+		html += "&nbsp;" + text;
 		html += "</span>";
 		document.writeln(html);
 	},
