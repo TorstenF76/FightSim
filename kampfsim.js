@@ -26,8 +26,9 @@ var HomeIsland = {
 }
 
 var UnitFactory = {
+	// Hier kommen nur die kampfrelevanten Eigenschaften hin. 
+	// Alle Eigenschaften für die GUI (Icons, Labels) kommen in kampfsim-ui.js
 	unit: function(shortcut, conf) {
-	
 		// defaults:
 		if (!conf.ini) conf.ini = Initiative.Normal;
 		
