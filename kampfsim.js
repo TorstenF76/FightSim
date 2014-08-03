@@ -1,4 +1,4 @@
-// http://thesettlersonline.wikia.com/wiki/Troops
+// http://www.siedlertools.de/wiki/Einheiten%C3%BCbersicht
 
 
 var Initiative = {
@@ -11,11 +11,16 @@ var HomeIsland = {
 	allUnits: function() {
 		var u = UnitFactory;
 		return [
-			u.recruit(), 
-			u.militia(), 
-			u.soldier(), 
-			u.eliteSoldier(), 
-			u.cavalry()
+			u.R(), 
+			u.M(), 
+			u.S(), 
+			u.E(), 
+			u.C(), 
+			u.B(), 
+			u.LB(),
+			u.A(),
+			u.K(),
+			u.G()
 		];
 	}
 }
@@ -41,24 +46,45 @@ var UnitFactory = {
 		};
 	},
 
-	recruit: function() {
+	R: function() {
 		return this.unit("R", { hp: 40, max: 30, min: 15, acc: 80 });
 	},
 
-	militia: function() {
+	M: function() {
 		return this.unit("M", { hp: 60, max: 40, min: 20, acc: 80});
 	},
 	
-	soldier: function() {
+	S: function() {
 		return this.unit("S", { hp: 90, max: 40, min: 20, acc: 85});
 	},
 
-	eliteSoldier: function() {
+	E: function() {
 		return this.unit("E", { hp: 120, max: 40, min: 20, acc: 90});
 	},
 
-	cavalry: function() {
+	C: function() {
 		return this.unit("C", { hp: 5, max: 10, min: 5, acc: 80, ini: Initiative.First });
+	},
+
+	B: function() {
+		return this.unit("B", { hp: 10, max: 40, min: 20, acc: 80 });
+	},
+
+	LB: function() {
+		return this.unit("LB", { hp: 10, max: 60, min: 30, acc: 80 });
+	},
+
+	A: function() {
+		return this.unit("A", { hp: 10, max: 90, min: 45, acc: 80 });
+	},
+
+	K: function() {
+		return this.unit("K", { hp: 60, max: 120, min: 60, acc: 90, ini: Initiative.Last });
+	},
+
+	// General
+	G: function() {
+		return this.unit("G", { hp: 1, max: 120, min: 120, acc: 100 });
 	},
 }
 

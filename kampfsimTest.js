@@ -1,5 +1,5 @@
-QUnit.test( "create recruit", function( assert ) {
-	var u = UnitFactory.recruit();
+QUnit.test( "Rekrut", function( assert ) {
+	var u = UnitFactory.R();
 	assert.ok(u, "exists");
 	assert.strictEqual(u.hitPoints, 40, "HitPoints");
 	assert.strictEqual(u.hitPointsAfterFight.min, 40, "hitPointsAfterFight.min");
@@ -11,8 +11,8 @@ QUnit.test( "create recruit", function( assert ) {
 	assert.strictEqual(u.initiative, "normal", "initiative");
 });
 
-QUnit.test( "create militia", function( assert ) {
-	var u = UnitFactory.militia();
+QUnit.test( "Miliz", function( assert ) {
+	var u = UnitFactory.M();
 	assert.ok(u, "exists");
 	assert.strictEqual(u.hitPoints, 60, "hitPoints");
 	assert.strictEqual(u.hitPointsAfterFight.min, 60, "hitPointsAfterFight.min");
@@ -24,8 +24,8 @@ QUnit.test( "create militia", function( assert ) {
 	assert.strictEqual(u.initiative, "normal", "initiative");
 });
 
-QUnit.test( "create soldier", function( assert ) {
-	var u = UnitFactory.soldier();
+QUnit.test( "Soldat", function( assert ) {
+	var u = UnitFactory.S();
 	assert.ok(u, "exists");
 	assert.strictEqual(u.hitPoints, 90, "hitPoints");
 	assert.strictEqual(u.hitPointsAfterFight.min, 90, "hitPointsAfterFight.min");
@@ -37,8 +37,8 @@ QUnit.test( "create soldier", function( assert ) {
 	assert.strictEqual(u.initiative, "normal", "initiative");
 });
 
-QUnit.test( "create elite soldier", function( assert ) {
-	var u = UnitFactory.eliteSoldier();
+QUnit.test( "Elitesoldat", function( assert ) {
+	var u = UnitFactory.E();
 	assert.ok(u, "exists");
 	assert.strictEqual(u.hitPoints, 120, "hitPoints");
 	assert.strictEqual(u.hitPointsAfterFight.min, 120, "hitPointsAfterFight.min");
@@ -50,8 +50,9 @@ QUnit.test( "create elite soldier", function( assert ) {
 	assert.strictEqual(u.initiative, "normal", "initiative");
 });
 
-QUnit.test( "create cavalry", function( assert ) {
-	var u = UnitFactory.cavalry();
+QUnit.test( "Reiter", function( assert ) {
+	// alternative syntax - we will need it later!
+	var u = UnitFactory["C"]();
 	assert.ok(u, "exists");
 	assert.strictEqual(u.hitPoints, 5, "hitPoints");
 	assert.strictEqual(u.hitPointsAfterFight.min, 5, "hitPointsAfterFight.min");
@@ -64,8 +65,8 @@ QUnit.test( "create cavalry", function( assert ) {
 });
 
 QUnit.test( "fight", function( assert ) {
-	var r = UnitFactory.recruit();
-	var m = UnitFactory.militia();
+	var r = UnitFactory.R();
+	var m = UnitFactory.M();
 	fight(r, m);
 	// must not be changed:
 	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
@@ -81,7 +82,7 @@ QUnit.test( "fight", function( assert ) {
 });
 
 QUnit.test( "create units", function( assert ) {
-	var unit = UnitFactory.recruit();
+	var unit = UnitFactory.R();
 	var u = new units(4, unit);
 	assert.ok( u, "exists" );
 	assert.strictEqual( u.count, 4, "u.count" );
