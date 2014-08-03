@@ -26,7 +26,7 @@ var KampfsimUi = {
 		G: "General"
 	},
 	
-	printUnit: function(unit) {
+	selectUnit: function(unit) {
 		var icon = this.icons[unit.letter];
 		var text = this.labels[unit.letter];
 		var html = "<span class='unit'>";
@@ -34,7 +34,17 @@ var KampfsimUi = {
 		html += Html.tag("img", { src: icon, alt: unit.letter });
 		html += "&nbsp;" + text;
 		html += "</span>";
-		document.writeln(html);
+		return html;
+	},
+	
+	selectUnits: function(units) {
+		var html = "";
+		var _this = this;
+		$.each(units, function(key, value) {
+			html += _this.selectUnit(value);
+			html += Html.tag("br");
+		});
+		return html;
 	},
 	
 	init: function() {

@@ -12,10 +12,7 @@
 <body>
 	<h2>Eigene Einheiten</h2>
 	<script>
-	$.each(HomeIsland.allUnits(), function(key, value) {
-		KampfsimUi.printUnit(value);
-		document.writeln("<br/>");
-	});
+	document.writeln(KampfsimUi.selectUnits(HomeIsland.allUnits()));
 	KampfsimUi.init();
 	</script>
 </body>
