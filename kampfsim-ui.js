@@ -47,6 +47,28 @@ var KampfsimUi = {
 		return html;
 	},
 	
+	parseUnits: function(selector) {
+		var units = {};
+		// body > table > tbody > tr:nth-child(2) > td.left > span:nth-child(20) > span > input
+		$(selector + " .unit input").each(function(i, e) {
+			var n = e.name;
+			var c = e.value;
+			units[n] = c;
+		});
+		
+		return units;
+	},
+	
+	toString: function(object) {
+		var sb;
+		for(prop in object) {
+			var s = prop + "=" + object[prop];
+			if (sb) sb += ", " + s
+			else sb = s;
+		}
+		return sb;
+	},
+	
 	init: function() {
 		$( ".unit .spinner" ).spinner({min: 0, max: 250});
 	}

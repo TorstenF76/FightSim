@@ -27,7 +27,21 @@
 				<script>document.writeln(KampfsimUi.printUnits(HomeIsland.allUnits()));</script>
 			</td>
 		</tr>
+		<tr>
+			<td colspan="2">
+				<button onclick="parse()">parse!</button>
+			</td>
+		</tr>
 	</table>
+	
+	<script>
+	function parse() {
+		var left = KampfsimUi.parseUnits('.left');
+		$(".output").html(KampfsimUi.toString(left));
+	}
+	</script>
+	
+	<div class="output"></div>
 	
 	<script>KampfsimUi.init();</script>
 </body>
