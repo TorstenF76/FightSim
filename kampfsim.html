@@ -43,9 +43,9 @@
 	<script>
 	function parse() {
 		var left = KampfsimUi.parseUnits('.left');
-		$(".outputLeft").html(KampfsimUi.toString(left));
+		$(".outputLeft").html(JSON.stringify(left));
 		var right = KampfsimUi.parseUnits('.right');
-		$(".outputRight").html(KampfsimUi.toString(right));
+		$(".outputRight").html(JSON.stringify(right));
 	}
 	</script>
 	

@@ -59,16 +59,6 @@ var KampfsimUi = {
 		return units;
 	},
 	
-	toString: function(object) {
-		var sb;
-		for(prop in object) {
-			var s = prop + "=" + object[prop];
-			if (sb) sb += ", " + s
-			else sb = s;
-		}
-		return sb;
-	},
-	
 	init: function() {
 		$( ".unit .spinner" ).spinner({min: 0, max: 250});
 	}
