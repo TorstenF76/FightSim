@@ -32,16 +32,22 @@
 				<button onclick="parse()">parse!</button>
 			</td>
 		</tr>
+		<tr>
+			<td class="outputLeft">
+			</td>
+			<td class="outputRight">
+			</td>
+		</tr>
 	</table>
 	
 	<script>
 	function parse() {
 		var left = KampfsimUi.parseUnits('.left');
-		$(".output").html(KampfsimUi.toString(left));
+		$(".outputLeft").html(KampfsimUi.toString(left));
+		var right = KampfsimUi.parseUnits('.right');
+		$(".outputRight").html(KampfsimUi.toString(right));
 	}
 	</script>
-	
-	<div class="output"></div>
 	
 	<script>KampfsimUi.init();</script>
 </body>
