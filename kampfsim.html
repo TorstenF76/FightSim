@@ -10,10 +10,25 @@
 	<script src="kampfsim-ui.js"></script>
 </head>
 <body>
-	<h2>Eigene Einheiten</h2>
-	<script>
-	document.writeln(KampfsimUi.selectUnits(HomeIsland.allUnits()));
-	KampfsimUi.init();
-	</script>
+	<table>
+		<tr>
+			<th>
+				<h2>Eigene Einheiten</h2>
+			</th>
+			<th>
+				<h2>Fremde Einheiten</h2>
+			</th>
+		</tr>
+		<tr>
+			<td class="left">
+				<script>document.writeln(KampfsimUi.printUnits(HomeIsland.allUnits()));</script>
+			</td>
+			<td class="right">
+				<script>document.writeln(KampfsimUi.printUnits(HomeIsland.allUnits()));</script>
+			</td>
+		</tr>
+	</table>
+	
+	<script>KampfsimUi.init();</script>
 </body>
 </html>
