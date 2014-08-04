@@ -26,21 +26,21 @@ var KampfsimUi = {
 		G: "General"
 	},
 	
-	printUnit: function(unit) {
-		var icon = this.icons[unit.letter];
-		var text = this.labels[unit.letter];
+	printUnit: function(unitLetter) {
+		var icon = this.icons[unitLetter];
+		var text = this.labels[unitLetter];
 		var html = "<span class='unit'>";
-		html += Html.tag("input", { class: "spinner", name: unit.letter, size: 3, value: 0 } );
-		html += Html.tag("img", { src: icon, alt: unit.letter });
+		html += Html.tag("input", { class: "spinner", name: unitLetter, size: 3, value: 0 } );
+		html += Html.tag("img", { src: icon, alt: unitLetter });
 		html += "&nbsp;" + text;
 		html += "</span>";
 		return html;
 	},
 	
-	printUnits: function(units) {
+	printUnits: function(unitLetters) {
 		var html = "";
 		var _this = this;
-		$.each(units, function(key, value) {
+		$.each(unitLetters, function(key, value) {
 			html += _this.printUnit(value);
 			html += Html.tag("br");
 		});

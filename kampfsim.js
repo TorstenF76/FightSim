@@ -9,18 +9,11 @@ var Initiative = {
 
 var HomeIsland = {
 	allUnits: function() {
-		var u = UnitFactory;
 		return [
-			u.R(), 
-			u.M(), 
-			u.S(), 
-			u.E(), 
-			u.C(), 
-			u.B(), 
-			u.LB(),
-			u.A(),
-			u.K(),
-			u.G()
+			"R", "B", "M", 
+			"C", "LB","S", 
+			"A", "E", "K",
+			"G"
 		];
 	}
 }
