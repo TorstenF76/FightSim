@@ -1,4 +1,4 @@
-var KampfsimUi = {
+var FightsimUi = {
 	// http://www.siedlertools.de/wiki/Einheiten%C3%BCbersicht
 	icons: {
 		R: "http://www.siedlertools.de/w/images/e/eb/Icon_recruit.png",

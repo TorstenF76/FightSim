@@ -6,8 +6,9 @@
 	<script src="lib/jquery-ui-1.11.0/jquery-ui.min.js"></script>
 	<link rel="stylesheet" href="lib/jquery-ui-1.11.0/jquery-ui.min.css">
 	<script src="html.js"></script>
-	<script src="kampfsim.js"></script>
-	<script src="kampfsim-ui.js"></script>
+	<script src="units.js"></script>
+	<script src="fightsim.js"></script>
+	<script src="fightsim-ui.js"></script>
 </head>
 <body>
 	<table>
@@ -21,10 +22,10 @@
 		</tr>
 		<tr>
 			<td class="left">
-				<script>document.writeln(KampfsimUi.printUnits(HomeIsland.allUnits()));</script>
+				<script>document.writeln(FightsimUi.printUnits(HomeIsland.allUnits()));</script>
 			</td>
 			<td class="right">
-				<script>document.writeln(KampfsimUi.printUnits(HomeIsland.allUnits()));</script>
+				<script>document.writeln(FightsimUi.printUnits(HomeIsland.allUnits()));</script>
 			</td>
 		</tr>
 		<tr>
@@ -42,13 +43,13 @@
 	
 	<script>
 	function parse() {
-		var left = KampfsimUi.parseUnits('.left');
+		var left = FightsimUi.parseUnits('.left');
 		$(".outputLeft").html(JSON.stringify(left));
-		var right = KampfsimUi.parseUnits('.right');
+		var right = FightsimUi.parseUnits('.right');
 		$(".outputRight").html(JSON.stringify(right));
 	}
 	</script>
 	
-	<script>KampfsimUi.init();</script>
+	<script>FightsimUi.init();</script>
 </body>
 </html>
