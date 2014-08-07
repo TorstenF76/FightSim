@@ -67,7 +67,7 @@ QUnit.test( "Reiter", function( assert ) {
 QUnit.test( "fight", function( assert ) {
 	var r = UnitFactory.R();
 	var m = UnitFactory.M();
-	fight(r, m);
+	FightSim.fight(r, m);
 	// must not be changed:
 	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
 	assert.strictEqual(m.hitPoints, 60, "m.hitPoints");
@@ -81,10 +81,12 @@ QUnit.test( "fight", function( assert ) {
 	assert.strictEqual(m.hitPointsAfterFight.avg, 33, "r.hitPointsAfterFight.avg");
 });
 
-QUnit.test( "create units", function( assert ) {
-	var unit = UnitFactory.R();
-	var u = new units(4, unit);
-	assert.ok( u, "exists" );
-	assert.strictEqual( u.count, 4, "u.count" );
-	assert.strictEqual( u.unit, unit, "u.unit" );
+QUnit.test( "create army", function( assert ) {
+	var u = UnitFactory.R();
+	var army = FightSim.createArmy({R: 10});
+	
+	assert.ok( army, "army exists" );
+	assert.ok( army["R"], "Recruits exist" );
+	assert.strictEqual( army["R"].count, 10, "R.count" );
+	assert.deepEqual( army["R"].unit, u, "R.unit" );
 });
