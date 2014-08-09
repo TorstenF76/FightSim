@@ -28,11 +28,6 @@ var UnitFactory = {
 		return {
 			letter: shortcut,	// Buchstabe
 			hitPoints: conf.hp,	// Lebenspunkte
-			hitPointsAfterFight: {
-				min: conf.hp, 
-				avg: conf.hp, 
-				max: conf.hp
-			},
 			damageMax: conf.max,	// Schaden max
 			damageMin: conf.min,	// Schaden min
 			accuracy: conf.acc, 	// Treffsicherheit
