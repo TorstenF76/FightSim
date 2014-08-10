@@ -34,11 +34,20 @@ var FightSim = {
 
 	simulationMode: SimulationMode.avg,
 
-	fight: function ( unit1, unit2 ) 
+	fight: function ( units1, units2 ) 
 	{
-		console.log(unit1.letter + " and " + unit2.letter + " begin a fight");
-		this.attack(unit1, unit2);
-		this.attack(unit2, unit1);
+		if (units1.length === 0 || units2.length === 0)
+		{
+			console.log("no fight");
+			return;
+		}
+		
+		console.log(units1.length + " " + units1[0].letter 
+			+ " and " + units2.length + " " + units2[0].letter + " begin a fight");
+		
+		// TODO: iterate!
+		this.attack(units1[0], units2[0]);
+		this.attack(units2[0], units1[0]);
 	},
 	
 	attack: function ( unit1, unit2 )
@@ -46,10 +55,10 @@ var FightSim = {
 		console.log(unit1.letter + " attacks " + unit2.letter + " with mode " + this.simulationMode);
 		switch(this.simulationMode) { 
 			case SimulationMode.min:
-				unit2.hitPoints -= unit1.damageMax;
+				unit2.hitPoints -= unit1.damageMin;
 				break;
 			case SimulationMode.max:
-				unit2.hitPoints -= unit1.damageMin;
+				unit2.hitPoints -= unit1.damageMax;
 				break;
 			case SimulationMode.avg:
 				unit2.hitPoints -= ((unit1.damageMax * unit1.accuracy) + (unit1.damageMin * (100-unit1.accuracy))) / 100;

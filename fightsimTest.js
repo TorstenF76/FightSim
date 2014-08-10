@@ -49,47 +49,70 @@ QUnit.test( "Reiter", function( assert ) {
 	assert.strictEqual(u.initiative, "first", "initiative");
 });
 
-QUnit.test( "fight min", function( assert ) {
-	// TODO. insert SimulationMode
+QUnit.test( "attack min", function( assert ) {
+	FightSim.simulationMode = SimulationMode.min;
 	var r = UnitFactory.R();
 	var m = UnitFactory.M();
+	// before fight
 	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
 	assert.strictEqual(m.hitPoints, 60, "m.hitPoints");
-	// fight
-	FightSim.simulationMode = SimulationMode.min;
-	FightSim.fight(r, m, SimulationMode.min);
-	// must not be changed:
+	// attack
+	FightSim.attack(r, m);
+	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
+	assert.strictEqual(m.hitPoints, 45, "m.hitPoints");
+	// revenge
+	FightSim.attack(m, r);
+	assert.strictEqual(r.hitPoints, 20, "r.hitPoints");
+	assert.strictEqual(m.hitPoints, 45, "m.hitPoints");
+});
+
+QUnit.test( "attack avg", function( assert ) {
+	FightSim.simulationMode = SimulationMode.avg;
+	var r = UnitFactory.R();
+	var m = UnitFactory.M();
+	// before fight
+	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
+	assert.strictEqual(m.hitPoints, 60, "m.hitPoints");
+	// attack
+	FightSim.attack(r, m);
+	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
+	assert.strictEqual(m.hitPoints, 33, "m.hitPoints");
+	// revenge
+	FightSim.attack(m, r);
+	assert.strictEqual(r.hitPoints, 4, "r.hitPoints");
+	assert.strictEqual(m.hitPoints, 33, "m.hitPoints");
+});
+
+QUnit.test( "attack max", function( assert ) {
+	FightSim.simulationMode = SimulationMode.max;
+	var r = UnitFactory.R();
+	var m = UnitFactory.M();
+	// before fight
+	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
+	assert.strictEqual(m.hitPoints, 60, "m.hitPoints");
+	// attack
+	FightSim.attack(r, m);
+	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
+	assert.strictEqual(m.hitPoints, 30, "m.hitPoints");
+	// revenge
+	FightSim.attack(m, r);
 	assert.strictEqual(r.hitPoints, 0, "r.hitPoints");
 	assert.strictEqual(m.hitPoints, 30, "m.hitPoints");
 });
 
-QUnit.test( "fight avg", function( assert ) {
-	// TODO. insert SimulationMode
-	var r = UnitFactory.R();
-	var m = UnitFactory.M();
-	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
-	assert.strictEqual(m.hitPoints, 60, "m.hitPoints");
-	// var FightSim sim = new FightSim();
-	FightSim.simulationMode = SimulationMode.avg;
-	FightSim.fight(r, m);
-	// Recruit
-	assert.strictEqual(r.hitPoints, 4, "r.hitPointsAfterFight.avg");
-	assert.strictEqual(m.hitPoints, 33, "r.hitPointsAfterFight.avg");
-});
 
-QUnit.test( "fight max", function( assert ) {
-	// TODO. insert SimulationMode
+QUnit.test( "fight single unit", function( assert ) {
+	FightSim.simulationMode = SimulationMode.avg;
 	var r = UnitFactory.R();
 	var m = UnitFactory.M();
 	assert.strictEqual(r.hitPoints, 40, "r.hitPoints");
 	assert.strictEqual(m.hitPoints, 60, "m.hitPoints");
 	// Recruit
-	FightSim.simulationMode = SimulationMode.max;
-	FightSim.fight(r, m);
+	FightSim.fight([r], [m]);
 	// must not be changed:
-	assert.strictEqual(r.hitPoints, 20, "r.hitPointsAfterFight.max");
+	assert.strictEqual(r.hitPoints, 4, "r.hitPoints");
 	// Militia
-	assert.strictEqual(m.hitPoints, 45, "r.hitPointsAfterFight.max");
+	assert.strictEqual(m.hitPoints, 33, "m.hitPoints");
 });
 
 QUnit.test( "create army", function( assert ) {
