@@ -4,28 +4,35 @@ var SimulationMode = {
 	avg: "average success", 
 	max: "maximal success"
 };
-	
-var FightSim = {
 
-	simulationMode: SimulationMode.avg,
-	
+var ArmyFactory = {
 	// config = {"B": 100}
-	// army = {"B": Array(UnitFactory.B()))}
+	// army = {"B": Array(100 x UnitFactory.B()))}
 	createArmy: function(config) 
 	{
 		console.log( "create army with ... ");
 		var army = {};
+		var self = this;
 		$.each(config, function(key, value) {
 			console.log( "... " + value + " " + key);
-			var newUnit = UnitFactory[key]();
-			// TODO. Wrong! we need 10 elements here!
-			army[key] = {
-				count: value,
-				unit: newUnit
-			}
+			var units = self.createUnits(value, key);
+			army[key] = units;
 		});
 		return army;
 	},
+
+	createUnits: function(count, unitLetter) {
+		var arr = new Array(count);
+		for(var i=0; i<count; i++) {
+			arr[i] = UnitFactory[unitLetter]();
+		}
+		return arr;
+	}
+};
+
+var FightSim = {
+
+	simulationMode: SimulationMode.avg,
 
 	fight: function ( unit1, unit2 ) 
 	{

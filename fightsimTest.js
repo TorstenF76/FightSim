@@ -94,10 +94,12 @@ QUnit.test( "fight max", function( assert ) {
 
 QUnit.test( "create army", function( assert ) {
 	var u = UnitFactory.R();
-	var army = FightSim.createArmy({R: 10});
+	var army = ArmyFactory.createArmy({R: 10});
 	
 	assert.ok( army, "army exists" );
 	assert.ok( army["R"], "Recruits exist" );
-	assert.strictEqual( army["R"].count, 10, "R.count" );
-	assert.deepEqual( army["R"].unit, u, "R.unit" );
+	assert.strictEqual( army["R"].length, 10, "R.count" );
+	for(var i=0; i<10; i++) {
+		assert.deepEqual( army["R"][i], u, "R.unit " + i );
+	}
 });
